@@ -8,8 +8,8 @@ add_executable(exemplo_glew ${my_source_files} )
 find_package(OpenGL)
 target_link_libraries(exemplo_glew ${OPENGL_LIBRARIES})
 #Adiciona a glew
-include_directories(C:/glew-2.0.0/include)
-target_link_libraries(exemplo_glew C:/glew-2.0.0/lib/Release/win32/glew32.lib)
+include_directories(C:/libs/glew-2.1.0/include)
+target_link_libraries(exemplo_glew C:/libs/glew-2.1.0/lib/Release/x64/glew32.lib)
 #Adiciona a GLFW
 include_directories(C:/libs/glfw/include)
 target_link_libraries(exemplo_glew debug C:/libs/glfw_bin/src/Debug/glfw3.lib)

@@ -11,7 +11,7 @@ using namespace std;
 const int screenWidth = 400;
 const int screenHeight = 400;
 GLFWwindow *window;
-bool isInitialized;
+
 int main(int argc, char** argv)
 {
 	try
@@ -49,14 +49,10 @@ int main(int argc, char** argv)
 		//O makeCurrent() da glfw
 		glfwSwapInterval(1);
 		glClearColor(0.0f, 0.0f, 1.0f, 1.0f);
-		isInitialized = false;
 
 		while (!glfwWindowShouldClose(window))
 		{
 			glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-			//O callback de inicialização
-			isInitialized = true;
-			//O callback de render
 			glfwPollEvents();
 			glfwSwapBuffers(window);
 		}
