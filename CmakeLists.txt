@@ -1,9 +1,15 @@
 cmake_minimum_required(VERSION 2.8)
 set(CMAKE_SUPPRESS_REGENERATION true)
 project(exemplo_glew)
-
+#determina o diretório onde a ITK está.
+set(ITK_DIR "C:/itk_nova/ITK_build")
+#procura e inclui a ITK
+find_package(ITK REQUIRED)
+include(${ITK_USE_FILE})
 file(GLOB my_source_files "*.h" "*.cpp" "*.cxx")
 add_executable(exemplo_glew ${my_source_files} )  
+#adiciona a ITK
+target_link_libraries(exemplo_glew   ${ITK_LIBRARIES})
 #Adiciona o opengl
 find_package(OpenGL)
 target_link_libraries(exemplo_glew ${OPENGL_LIBRARIES})
