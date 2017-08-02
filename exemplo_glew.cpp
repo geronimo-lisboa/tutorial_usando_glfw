@@ -7,19 +7,26 @@
 #include <sstream>
 #include <stdlib.h>
 #include "janela.h"
+#include "shader.h"
 
 using namespace std;
 
-shared_ptr<Janela> janela = nullptr;
+
 
 int main(int argc, char** argv)
 {
+	shared_ptr<Janela> janela = nullptr;
+	shared_ptr<Shader> shader = nullptr;
 	try
 	{
 		janela = make_shared<Janela>(300, 300,
-		[](){
+		[&shader](){
+			shader = make_shared<Shader>("C:\\programacao\\tutorial_usando_glfw\\vertexShader.glsl",
+				"C:\\programacao\\tutorial_usando_glfw\\fragmentShader.glsl");
 		},
-		[](){
+
+		[&shader](){
+			
 		});
 		janela->Render();
 		exit(EXIT_SUCCESS);
